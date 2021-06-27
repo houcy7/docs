@@ -1,25 +1,25 @@
 <template>
   <div class="page-info">
     <i
-      class="iconfont reco-account"
+      class="iconfont reco-account text-green"
       v-if="pageInfo.frontmatter.author || $themeConfig.author || $site.title">
       <span>{{ pageInfo.frontmatter.author || $themeConfig.author || $site.title }}</span>
     </i>
     <i
       v-if="pageInfo.frontmatter.date"
-      class="iconfont reco-date">
+      class="iconfont reco-date text-green">
       <span>{{ pageInfo.frontmatter.date | formatDateValue }}</span>
     </i>
     <i
       v-if="showAccessNumber === true"
-      class="iconfont reco-eye">
+      class="iconfont reco-eye text-green">
       <AccessNumber
         :idVal="pageInfo.path"
-        :numStyle="numStyle"/>
+        :numStyle="numStyle "/>
     </i>
     <i
       v-if="pageInfo.frontmatter.tags"
-      class="iconfont reco-tag tags">
+      class="iconfont reco-tag tags text-green">
       <span
         v-for="(subItem, subIndex) in pageInfo.frontmatter.tags"
         :key="subIndex"
@@ -124,4 +124,8 @@
     .page-info
       margin 0
       justify-content center
+
+  .text-green {
+    // color #00FF7F
+  }
 </style>
