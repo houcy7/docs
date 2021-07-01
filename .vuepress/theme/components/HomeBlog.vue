@@ -139,8 +139,8 @@
     methods: {
     motto() {
     this.$axios.get('https://bird.ioliu.cn/v1?url=http://open.iciba.com/dsapi/').then(res => {
-    this.zh = res.data.note;
-    this.en = res.data.content
+    this.zh = res.data.note || '努力不一定成功 但放弃一定失败';
+    this.en = res.data.content || 'Presistence not necessarily bring success,but giving up is bound to fail.';
     }).catch(error => {
     console.log(error);
     let res = {
