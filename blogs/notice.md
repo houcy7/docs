@@ -79,6 +79,32 @@ http调用统一入口代码为：`SendNotificationController`
 + 目前企业微信只支持老企业微信
 :::
 
+## 同步企业微信通讯录<Badge text="NEW"/>
+因为短信通道总是不能成功下发短信，为了避免重要信息不能及时送达，所以在发送短信时，默认向企业微信推送消息。
+而推送企业微信消息需要配置手机号和企业微信中微信名的映射，所以编写了通讯录同步功能。
+
+### 短信同时推送企业微信
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsu5jqvhiaj31c00u045z.jpg)
+
+:::tip 注意
+下发短信时候的签名(【】里边的内容)是在云码通策略里边实现的，为了保持一致，在推送企业微信时把逻辑重写了一遍。
+:::
+
+### 自动更新
+通过定时任务，每天的12：17去获取通讯录信息，然后将库中所有数据清空，重新插入。
+[文档](https://work.weixin.qq.com/api/doc/90000/90135/90201)
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsu5oymh7oj31c00u07am.jpg)
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsu5puk6hfj61c00u044j02.jpg)
+
+:::tip 注意
++ 调用接口是获取的是部门的通讯录，并且允许递归查询，所以将查询部门设置为1（天创信用）可以间接的获取到所有公司员工信息
++ 12:17是我生日😃
+:::
+
+### 手动更新
+如有需要可以通过页面提前触发定时任务
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsu5tlgwr2j31c00u0ag0.jpg)
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsu5ujzubuj31c00u0dm0.jpg)
 
 ## 部署运维
 提交代码后通过[容器的Jenkins](http://jenkins.container.tcredit.com/)进行打包，然后在`阿里云控制台`进行发版。
