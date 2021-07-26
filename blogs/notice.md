@@ -76,7 +76,6 @@ http调用统一入口代码为：`SendNotificationController`
 + 使用企业微信进行通知时，需要在管理页面配置别名才可以通过手机号给某人的企业微信进行通知；
 微信号为企业微信账号，需要通过企业微信管理员进行查看。
 ![](https://tva1.sinaimg.cn/large/008i3skNly1grw1uivym5j31h70q70z6.jpg)
-+ 目前企业微信只支持老企业微信
 :::
 
 ## 同步企业微信通讯录<Badge text="NEW"/>
