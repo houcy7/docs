@@ -16,8 +16,7 @@ tags:
 `企业报告`的导出分为`pdf版本`和`word版本`。`pdf版本`的实现原理为将调用接口的响应结果渲染到页面上，通过只有内核的浏览器组件模拟打印，
 保存pdf并下载；word版本与之相似，将调用结果填充到`word模板（xml格式）`中，通过`freemarker`生成文件并下载。
 
-+ 账号：bgtest
-+ 密码：rg4MwPe3g42V
++ 账号密码：[系统密码](http://wiki.tcredit.com/pages/viewpage.action?pageId=42107792)
 + 登录地址： [https://api.ypcredit.com/norns/service/cas/doLogin?service=https://api.ypcredit.com/odin/user/sso](https://api.ypcredit.com/norns/service/cas/doLogin?service=https://api.ypcredit.com/odin/user/sso)
 
 ### pdf

@@ -25,8 +25,11 @@ obf作为跑批调度的最后一步，负责对内部数仓（`v3`,`v4`,`dt`,`w
 
 通联ftp登录命令：
 ```shell script
-sftp -oPort=5022 tianchuang@180.168.54.251 (Lqo6^d1Pn)
+sftp -oPort=5022 tianchuang@180.168.54.251 
 ```
+
+ftp密码：[系统密码](http://wiki.tcredit.com/pages/viewpage.action?pageId=42107792)
+
 
 `ZJ`的回溯文件则是存在`天创`的ftp服务器
 ![](https://tva1.sinaimg.cn/large/008i3skNly1grwr1xu0z1j61dj0u014x02.jpg)
