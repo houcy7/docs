@@ -50,8 +50,7 @@ publish: true
 
 + 命名空间选择`app`
 
-  ![image-20210730120139857](/Users/hou/Library/Application Support/typora-user-images/image-20210730120139857.png)
-
+![image-20210730120139857](https://tva1.sinaimg.cn/large/008i3skNly1gsyvi4kjpnj31it0u0tfv.jpg)
 + 点击`编辑`，选择`镜像tag`（tag与Jenkins打包后的一致 一般根据时间可以区分开），后点击`更新`
 
   ![image-20210730120238779](https://tva1.sinaimg.cn/large/008i3skNly1gsyue2nv5dj31is0u0wif.jpg)
