@@ -23,8 +23,7 @@ subSidebar: 'auto'
 可以通过管理页面进行通知记录的简单查询。
 
 + 登录地址: [http://notice.tcredit.com/login.html#1](http://notice.tcredit.com/login.html#1)
-+ 账号：admin
-+ 密码：123@tcredit
++ 账号密码：[系统密码](http://wiki.tcredit.com/pages/viewpage.action?pageId=42107792)
 
 
 ## 账单统计
