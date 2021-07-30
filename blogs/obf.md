@@ -85,6 +85,101 @@ sftp -oPort=5022 tianchuang@180.168.54.251 (Lqo6^d1Pn)
 + ZJ通知人
 ![](https://tva1.sinaimg.cn/large/008i3skNly1grwsj7r5qyj313u0u0jua.jpg)
 
+## 新增数据源流程<Badge text="NEW" color: "red" />
+### 内部数据源
+内部数据源的执行流程完全一致，只有调用时的`标记（数据源类型）`是有区别的。
+开发代码时，只要`新建`枚举值，将子类`继承`封装好的`模板方法`
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsyqyvjwbbj31c00u0797.jpg)
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsyqydijz9j31c00u0q7l.jpg)
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsyqwnzoeij31c00u0gse.jpg)
+最后将其加入到`静态工厂`中，在项目启动后进行内部数据源的"监听"。
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsyqzmt5f3j61c00u0tfi02.jpg)
+
+页面配置示例及参数如下：
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsyr1u7vn6j31im0u0q7v.jpg)
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsyr2j19raj61ix0u0q8802.jpg)
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsyr30ks1vj325q0ti0xi.jpg)
+
+配置项说明：
+| 配置项     | 值   | 说明   |
+| -------- | ------ |  ------ |
+| 名称    | 数据源名称 | 中文英文均可，只是展示用 |
+| 虚拟数据源    | 是否为虚拟数据源 | 默认为否 |
+| 调用地址  | http://api.tcredit.com/obf/inner/execute | 内部数据源固定调用地址 | 
+| 请求方法 | POST | 默认值 |
+| 请求头 | application/x-www-form-urlencoded | 默认值 | 
+| 超时时间 | 300000 | 毫秒，尽量长一点 |
+| 重试次数 | 3 | 失败后重试次数 | 
+| 携带文件 | 是 | 调用接口时，是否携带了文件，内部接口为是 |
+| 加急 | 否 | 内部数据源不支持加急 |
+| 是否回调 | 是 | 是否进行回调 |
+| 文件参数 | file | 固定值 |
+
+参数说明：
+| 参数名称     | 参数类型   | 值   | 说明   |
+| -------- | ------ |  ------ | ------ |
+| appId    | appId | af964efd-0732-447b-b5a0-27f0f0f47788 | 固定值 |
+|  taskId   | 函数表达式 | append(req.taskId, _, const.taskType, _, file.name) | 固定值 |
+| taskType  | 常量 | **代码中的枚举** | 此处需要和代码的枚举值保持一致 |
+| tokenKey | 函数表达式 | genTokenKey(appId=req.appId, taskType=const.taskType, taskId=func.append(req.taskId, _, const.taskType, _, file.name), fileName=file.name) | 固定值 |
+| fileName | 文件 | name | 固定值 | 
+
+
+### 外部数据源
+外部数据源的执行流程也是好多流程都是相同的，在需要具体数据源具体实现的地方使用`钩子方法`由子类实现。
+开发代码时，`新建`枚举值，将子类`继承`封装好的`模板方法`，并`实现`钩子方法
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsyrprwjwkj31c00u0q8g.jpg)
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsyroaghrnj31c00u0tes.jpg)
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsyrp7rnmxj31c00u0dlt.jpg)
+
+将其加入到`静态工厂`中
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsyrqdxsj4j31c00u00yu.jpg)
+
+配置定时任务，传入枚举值进行调用
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsyrrpp7hnj31c00u0458.jpg)
+
+页面配置示例及参数如下：
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsyrt4gvtpj31im0u0jw3.jpg)
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsyrtje8moj31is0u043q.jpg)
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsyrtt6ls6j31ig0u077i.jpg)
+
+加急调用：
+![](https://tva1.sinaimg.cn/large/008i3skNly1gsyrw9th76j31j30u0goz.jpg)
+
+钩子方法说明：
+| 方法名     | 作用   | 
+| -------- | ------ |  
+| getHeaders    | 上传给数据源样本中使用的表头 | 
+| getColIndexes    | 上传给数据源样本中使用的字段索引值，默认顺序"idcard-sha256，mobile-sha256，dateBack，idcard-md5，mobile-md5，idcard-sha256-salt，mobile-sha256-salt" | 
+| sendSampleToOuter  | 样本传输给数据源的具体实现 | 
+
+配置项说明：
+| 配置项     | 值   | 说明   |
+| -------- | ------ |  ------ |
+| 名称    | 数据源名称 | 中文英文均可，只是展示用 |
+| 虚拟数据源    | 是否为虚拟数据源 | 默认为否 |
+| 调用地址  | http://api.tcredit.com/obf/sample/uploadSample | 外部数据源固定调用地址 | 
+| 请求方法 | POST | 默认值 |
+| 请求头 | application/x-www-form-urlencoded | 默认值 | 
+| 超时时间 | 300000 | 毫秒，尽量长一点 |
+| 重试次数 | 3 | 失败后重试次数 | 
+| 携带文件 | 是 | 调用接口时，是否携带了文件，外部接口为是 |
+| 加急 | 否 | 外部数据源默认支持加急，只是将定时任务提前执行，一般会将样本传输到不同的文件夹下 |
+| 是否回调 | 是 | 是否进行回调 |
+| 文件参数 | file | 固定值 |
+
+参数说明：
+| 参数名称     | 参数类型   | 值   | 说明   |
+| -------- | ------ |  ------ | ------ |
+| appId    | appId | af964efd-0732-447b-b5a0-27f0f0f47788 | 固定值 |
+|  taskId   | 函数表达式 | append(req.taskId, _, const.taskType, _, file.name) | 固定值 |
+| taskType  | 常量 | **代码中的枚举** | 此处需要和代码的枚举值保持一致 |
+| tokenKey | 函数表达式 | genTokenKey(appId=const.appId, taskType=const.taskType, taskId=func.append(req.taskId, _, const.taskType, _, file.name), filename=file.name) | 固定值 |
+| fileName | 文件 | name | 固定值 | 
+
+### 虚拟数据源
+虚拟数据源只是将线下执行的计算处理，在线上进行一个管理操作，只有一个名称必填项。
+
 ## 相关资料
 
 + [内部源跑批任务回调接口](http://wiki.tcredit.com/pages/viewpage.action?pageId=35390658)
