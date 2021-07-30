@@ -85,7 +85,7 @@ sftp -oPort=5022 tianchuang@180.168.54.251 (Lqo6^d1Pn)
 + ZJ通知人
 ![](https://tva1.sinaimg.cn/large/008i3skNly1grwsj7r5qyj313u0u0jua.jpg)
 
-## 新增数据源流程<Badge text="NEW" color: "red" />
+## 新增数据源流程<Badge text="NEW"/>
 ### 内部数据源
 内部数据源的执行流程完全一致，只有调用时的`标记（数据源类型）`是有区别的。
 开发代码时，只要`新建`枚举值，将子类`继承`封装好的`模板方法`
