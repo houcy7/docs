@@ -100,7 +100,7 @@ export default {
       this.warningText = '对一下暗号'
     },
     inputBlur () {
-      this.warningText = 'Konck! Knock!'
+      this.warningText = 'worker: ?'
     },
     isHasKey () {
       let { keys } = this.$themeConfig.keyPage
@@ -148,7 +148,7 @@ export default {
   }
   .inputBox{
     position absolute
-    top 40%
+    top 50%
     left 0
     right 0
     margin auto
