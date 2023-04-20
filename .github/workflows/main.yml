@@ -8,13 +8,13 @@ jobs:
     name: Build docs by vuepress
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Install npm dependencies
         run: npm install
       - name: build docs
         run: npm run build
       - name: Upload vuepress build result
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: vuepress-dist
           path: dist
@@ -25,7 +25,7 @@ jobs:
       - build
     steps:
       - name: Download previous build result
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: vuepress-dist
       - name: View artifact files
