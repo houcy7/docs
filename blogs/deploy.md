@@ -26,7 +26,7 @@ publish: true
 
 + ECS地址：http://jenkins.t.tcredit.com/view/ad-online-DataCalculation/
 
-![image-20210730115555716](https://tva1.sinaimg.cn/large/008i3skNly1gsyu72wclqj31eo0u00yf.jpg)
+![image-20210730115555716](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1gsyu72wclqj31eo0u00yf.jpg)
 
 阿里云地址：http://jenkins.container.tcredit.com/login?from=%2F
 
