@@ -1,7 +1,7 @@
 ---
 title: 预付管家
 date: 2021-06-26 19:48:27
-cover: https://tva1.sinaimg.cn/large/008i3skNly1grw2immonpj31h90qvkix.jpg
+cover: https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grw2immonpj31h90qvkix.jpg
 categories:
   - 预付管家
 subSidebar: 'auto'

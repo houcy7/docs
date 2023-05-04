@@ -24,7 +24,7 @@ sticky: 2
 ## 查询验证码
 
 + 在`通知中心管理页面`查询
-![](https://tva1.sinaimg.cn/large/008i3skNly1grx3heccvkj31h30sp0wb.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grx3heccvkj31h30sp0wb.jpg)
 + 数据库查询
 ```sql
 select * from notice_sms where notice_mp like 'xxxx' order by create_time desc;

@@ -1,7 +1,7 @@
 ---
 title: 风控系统
 date: 2021-06-26 19:48:42
-cover: https://tva1.sinaimg.cn/large/008i3skNly1grw5fk4rnxj318k0ljn55.jpg
+cover: https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grw5fk4rnxj318k0ljn55.jpg
 categories:
   - 风控系统
 tags:
@@ -39,11 +39,11 @@ sticky: 1
 ## 样本回溯任务
 `信用百科`通过样本进件可以通过`一次进件`调用`多个`回溯产品，多个产品有可能存在`相同`的数据源，而这些数据源多次调用和一次调用结果上`没有
 区别`，却会造成资源的浪费。通过在`调用obf之前`对数据源进行去重后，再发起调用。
-![](https://tva1.sinaimg.cn/large/008i3skNly1grwxfjyc17j31dj0u0e12.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grwxfjyc17j31dj0u0e12.jpg)
 
 合并后示例如下：
-![](https://tva1.sinaimg.cn/large/008i3skNly1grwxgh39uxj30uc0cmq4i.jpg)
-![](https://tva1.sinaimg.cn/large/008i3skNly1grwxh9woqtj31bp0l940r.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grwxgh39uxj30uc0cmq4i.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grwxh9woqtj31bp0l940r.jpg)
 
 ## 部署
 这个项目没有使用前后端分离的方式进行部署，而是将前端（`项目前端`+`文档前端`）执行打包命令后生成的静态文件拷贝到后端的指定目录下，
@@ -98,20 +98,20 @@ echo $currTime
 
 + 测试环境：
     + 通过测试环境Jenkins进行发版
-    ![](https://tva1.sinaimg.cn/large/008i3skNly1grw64uv3owj31h30iwgq4.jpg)
+    ![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grw64uv3owj31h30iwgq4.jpg)
     + 服务器: 172.19.160.60
     + 端口号：8888
     + 数据库：88数据库 config_manager
 
 + 生产环境:
     + 通过容器环境Jenkins打包：
-    ![](https://tva1.sinaimg.cn/large/008i3skNly1grw67bmwj5j31fv0sswon.jpg)
+    ![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grw67bmwj5j31fv0sswon.jpg)
     
     + 在阿里云控制台中进行部署，命名空间：`rc-data`
-    ![](https://tva1.sinaimg.cn/large/008i3skNly1grw68mg9ecj31hb0qx471.jpg)
+    ![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grw68mg9ecj31hb0qx471.jpg)
     + 数据库：阿里云rds rc_approve
     + 日志
-    ![](https://tva1.sinaimg.cn/large/008i3skNly1grw69xj3tij31hb0r1tig.jpg)
+    ![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grw69xj3tij31hb0r1tig.jpg)
 
 :::tip 遗憾
 一直没能给项目起新名字... 
