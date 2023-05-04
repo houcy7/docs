@@ -1,7 +1,7 @@
 ---
 title: 通知中心
 date: 2021-06-26 19:48:15
-cover: https://tva1.sinaimg.cn/large/008i3skNly1grw0cy5p3kj61lo0u0kjm02.jpg
+cover: https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grw0cy5p3kj61lo0u0kjm02.jpg
 categories:
   - 通知中心
 tags:
@@ -31,9 +31,9 @@ subSidebar: 'auto'
 
 目前在使用的外部通道只有两个，`云码通`和`易宝YOP`。云码通对接人为`梁洁`，易宝YOP对接人为`国宝`（微信名）
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1grw0qs23uaj314t0u076u.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grw0qs23uaj314t0u076u.jpg)
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1grw0sae84yj31490u0ac7.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grw0sae84yj31490u0ac7.jpg)
 
 统计sql如下(日期需要替换)：    
 ```sql
@@ -44,7 +44,7 @@ where t.create_time >= '2021-04-01' and t.create_time < '2021-05-01' group by t.
 ```
 
 邮件内容如下：    
-![](https://tva1.sinaimg.cn/large/008i3skNly1grw173dpyfj30ww0u0mz8.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grw173dpyfj30ww0u0mz8.jpg)
 
 ## 代码开发
 
@@ -52,21 +52,21 @@ where t.create_time >= '2021-04-01' and t.create_time < '2021-05-01' group by t.
 基本上没有新的开发需求，只要保证服务稳定即可。如果遇到问题，通过controller往下找即可。
 
 http调用统一入口代码为：`SendNotificationController`
-![](https://tva1.sinaimg.cn/large/008i3skNly1grw1jup5b6j31dq0u0tms.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grw1jup5b6j31dq0u0tms.jpg)
 
 
 在系统启动时会启动一个线程对系统的健康进行监控，当某一类通知失败达到上限时会对通知中心的负责人进行告警。相关代码为：`HeathWarnManager`
-![](https://tva1.sinaimg.cn/large/008i3skNly1grw2cfq60jj31dj0u0na6.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grw2cfq60jj31dj0u0na6.jpg)
 
 通知中心的负责人配置位于：`HealWarnMsgUtil`
-![](https://tva1.sinaimg.cn/large/008i3skNly1grw2egjjh9j61dj0u0wv102.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grw2egjjh9j61dj0u0wv102.jpg)
 
 ::: warning     
 其实这个配置应该挪到配置文件中    
 :::
 
 线上的全通道测试代码：`OnLineAllTest`    
-![](https://tva1.sinaimg.cn/large/008i3skNly1grw1n13zzpj31dq0u0qia.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grw1n13zzpj31dq0u0qia.jpg)
 
 
 :::tip 注意
@@ -74,7 +74,7 @@ http调用统一入口代码为：`SendNotificationController`
 + 短信发给多个人的时候，接收人使用英文逗号进行分隔
 + 使用企业微信进行通知时，需要在管理页面配置别名才可以通过手机号给某人的企业微信进行通知；
 微信号为企业微信账号，需要通过企业微信管理员进行查看。
-![](https://tva1.sinaimg.cn/large/008i3skNly1grw1uivym5j31h70q70z6.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grw1uivym5j31h70q70z6.jpg)
 :::
 
 ## 同步企业微信通讯录<Badge text="NEW"/>
@@ -82,7 +82,7 @@ http调用统一入口代码为：`SendNotificationController`
 而推送企业微信消息需要配置手机号和企业微信中微信名的映射，所以编写了通讯录同步功能。
 
 ### 短信同时推送企业微信
-![](https://tva1.sinaimg.cn/large/008i3skNly1gsu5jqvhiaj31c00u045z.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1gsu5jqvhiaj31c00u045z.jpg)
 
 :::tip 注意
 下发短信时候的签名(【】里边的内容)是在云码通策略里边实现的，为了保持一致，在推送企业微信时把逻辑重写了一遍。
@@ -91,8 +91,8 @@ http调用统一入口代码为：`SendNotificationController`
 ### 自动更新
 通过定时任务，每天的12：17去获取通讯录信息，然后将库中所有数据清空，重新插入。
 [文档](https://work.weixin.qq.com/api/doc/90000/90135/90201)
-![](https://tva1.sinaimg.cn/large/008i3skNly1gsu5oymh7oj31c00u07am.jpg)
-![](https://tva1.sinaimg.cn/large/008i3skNly1gsu5puk6hfj61c00u044j02.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1gsu5oymh7oj31c00u07am.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1gsu5puk6hfj61c00u044j02.jpg)
 
 :::tip 注意
 + 调用接口是获取的是部门的通讯录，并且允许递归查询，所以将查询部门设置为1（天创信用）可以间接的获取到所有公司员工信息
@@ -101,23 +101,23 @@ http调用统一入口代码为：`SendNotificationController`
 
 ### 手动更新
 如有需要可以通过页面提前触发定时任务
-![](https://tva1.sinaimg.cn/large/008i3skNly1gsu5tlgwr2j31c00u0ag0.jpg)
-![](https://tva1.sinaimg.cn/large/008i3skNly1gsu5ujzubuj31c00u0dm0.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1gsu5tlgwr2j31c00u0ag0.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1gsu5ujzubuj31c00u0dm0.jpg)
 
 ## 部署运维
 提交代码后通过[容器的Jenkins](http://jenkins.container.tcredit.com/)进行打包，然后在`阿里云控制台`进行发版。
-![](https://tva1.sinaimg.cn/large/008i3skNly1grw1z50zvtj31hb0qzq6z.jpg)
-![](https://tva1.sinaimg.cn/large/008i3skNly1grw207qdnmj31h90qt0wh.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grw1z50zvtj31hb0qzq6z.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grw207qdnmj31h90qt0wh.jpg)
 
 :::tip 注意
 通知中心docker镜像部署的命名空间为`app-xiaoxinquan`
 :::
 
 线上日志查看地址：    
-![](https://tva1.sinaimg.cn/large/008i3skNly1grw22auew7j31hb0qv45f.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grw22auew7j31hb0qv45f.jpg)
 
 线上数据库（阿里云）：
-![](https://tva1.sinaimg.cn/large/008i3skNly1grw24uhau1j31az0daq40.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grw24uhau1j31az0daq40.jpg)
 
 | 表名     | 说明   |
 | -------- | ------ |
@@ -130,7 +130,7 @@ http调用统一入口代码为：`SendNotificationController`
 + 百度网盘：链接:[https://pan.baidu.com/s/1DTuEQmCHIrPHdYFx73YdDA](https://pan.baidu.com/s/1DTuEQmCHIrPHdYFx73YdDA)  密码:1urp    
 
 内容如下：
-![](https://tva1.sinaimg.cn/large/008i3skNly1grw0jfzwb5j31600ls0w6.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grw0jfzwb5j31600ls0w6.jpg)
 
 + [账单统计sql](http://wiki.tcredit.com/pages/viewpage.action?pageId=42107102)
 + [生产Jenkins](http://jenkins.container.tcredit.com/)

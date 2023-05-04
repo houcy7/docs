@@ -34,8 +34,8 @@ module.exports =
             "juejin": false, //掘金
             "segmentfault": false, //思否
             "csdn": false, //CSDN
-            "wechat": "https://tva1.sinaimg.cn/large/008eGmZEly1goaqpuypj6j30tc12l0wx.jpg", //微信
-            "qq": "https://tva1.sinaimg.cn/large/008eGmZEly1goaqpkhqyjj30u01hddlt.jpg" //QQ
+            "wechat": "https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008eGmZEly1goaqpuypj6j30tc12l0wx.jpg", //微信
+            "qq": "https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008eGmZEly1goaqpkhqyjj30u01hddlt.jpg" //QQ
         },
         // 自我介绍 end
         noFoundPageByTencent: false,

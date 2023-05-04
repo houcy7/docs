@@ -1,7 +1,7 @@
 ---
 title: 信用百科-策略产品自动配置
 date: 2021-06-26 19:48:59
-cover: https://tva1.sinaimg.cn/large/008i3skNly1grwxmrmyt9j31hb0qt7wh.jpg
+cover: https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grwxmrmyt9j31hb0qt7wh.jpg
 categories:
   - 信用百科
 subSidebar: 'auto'
@@ -16,10 +16,10 @@ tags:
 我接手`信用百科`就只交接了配置产品，配置一个产品整个流程操作下来需要`小20分钟`。配置几个产品后发现，除了`几个变量`需要注意下，其余流程都是
 固定的，所以将`配置过程`暴露出一个`接口`来接收`特定参数`，其余过程由`代码自动`完成，完成一个产品的配置耗时`300ms`左右。
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1grwyh5ym2rj31hb0qu0vj.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grwyh5ym2rj31hb0qu0vj.jpg)
 
 后台代码：`AutoConfigureController`
-![](https://tva1.sinaimg.cn/large/008i3skNly1grwyi8e4rkj31dj0u0wzi.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grwyi8e4rkj31dj0u0wzi.jpg)
 
 :::tip    
 接收到请求之后，后台的操作是向各个表中插入数据，具体逻辑看一下就好，没有复杂的地方
@@ -31,4 +31,4 @@ tags:
 ```javascript
 "name-姓名", "idcard-身份证号", "mobile-手机号", "dateBack-回溯时间yyyy-MM-dd", "sceneId-枚举值"
 ```
-![](https://tva1.sinaimg.cn/large/008i3skNly1grx348s5sfj31240sdaf9.jpg)
+![](https://image.baidu.com/search/down?url=https://tva1.sinaimg.cn/large/008i3skNly1grx348s5sfj31240sdaf9.jpg)
