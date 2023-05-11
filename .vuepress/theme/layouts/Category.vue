@@ -164,6 +164,10 @@
       }
     }
 
+  .pagation-list > span {
+    display: inline
+  }
+
   @media (max-width: $MQMobile)
     .categories-wrapper
       padding: 4.6rem 1rem 0;

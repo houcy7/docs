@@ -108,6 +108,10 @@
     margin: 0 auto;
     padding: 4.6rem 2.5rem 0;
 
+    .pagation-list > span {
+      display: inline
+    }
+
   @media (max-width: $MQMobile)
     .tag-wrapper
       padding: 4.6rem 1rem 0;
